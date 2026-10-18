@@ -37,7 +37,7 @@ body {
   pointer-events: none;
   background-image: radial-gradient(
     circle,
-    rgba(20, 32, 68, 0.35) 1.2px,
+    rgba(20, 32, 68, 0.1) 1.2px,
     transparent 1.6px
   );
   background-size: 24px 24px;
