@@ -48,7 +48,7 @@ export default async function CasePage({
             <ChevronLeft size={16} className="text-neutral-700" />
             <span className="font-semibold text-neutral-900">Work</span>
             <span className="text-neutral-300">/</span>
-            <span className="text-neutral-500">{meta.name}</span>
+            <span className="text-neutral-500">{meta.title}</span>
           </Link>
         </div>
       </div>
