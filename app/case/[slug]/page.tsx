@@ -6,6 +6,7 @@ import { ChevronLeft } from "lucide-react";
 import { caseStudies } from "@/data/case-studies";
 import FurtunaCaseStudy from "@/components/case/furtuna/FurtunaCaseStudy";
 import CikarangCaseStudy from "@/components/case/cikarang/CikarangCaseStudy";
+export const instant = false;
 
 const pages: Record<string, ComponentType> = {
   furtuna: FurtunaCaseStudy,
