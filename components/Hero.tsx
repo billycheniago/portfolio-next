@@ -61,11 +61,12 @@ export default function Hero() {
             <div className="relative aspect-[15/16] overflow-hidden rounded-2xl">
               <Image
                 src="/profile.jpg"
-                alt="Foto Billy Cheniago"
+                alt="Billy Cheniago"
                 fill
                 priority
                 sizes="(min-width: 768px) 384px, 90vw"
                 className="object-cover"
+                loading="eager"
               />
             </div>
             <p className="mt-4 text-center font-hand text-2xl font-bold text-neutral-600">

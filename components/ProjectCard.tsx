@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useSpring, useTransform } from "motion/react";
 import type { Project } from "@/data/projects";
+import Link from "next/link";
 
 export default function ProjectCard({ project }: { project: Project }) {
   const ref = useRef<HTMLElement>(null);
@@ -26,8 +27,13 @@ export default function ProjectCard({ project }: { project: Project }) {
     <motion.article
       ref={ref}
       style={{ y, opacity }}
-      className={`keep-light grid overflow-hidden rounded-[1.75rem] md:grid-cols-2 md:rounded-[2rem] ${project.gradient}`}
+      className={`keep-light relative grid overflow-hidden rounded-[1.75rem] md:grid-cols-2 md:rounded-[2rem] ${project.gradient}`}
     >
+      <Link
+        href={project.href}
+        aria-label={`View case study: ${project.title}`}
+        className="absolute inset-0 z-10 md:hidden"
+      />
       {/* Teks */}
       <div className="flex flex-col items-start justify-center gap-5 p-6 md:gap-6 md:p-12">
         {/* Baris atas: logo + chevron (chevron hanya di mobile) */}
