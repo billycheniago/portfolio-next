@@ -8,8 +8,11 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-source-sans);
+  --font-hand: var(--font-caveat), cursive;
+  --color-accent: #e64406;
+  --color-accent-from: #fb892c;
+  --color-accent-to: #e64406;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,9 +23,7 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-source-sans), system-ui, sans-serif;
 }
 
 .dot-grid {
@@ -47,4 +48,143 @@ body {
     transparent 78%
   );
   mask-image: radial-gradient(120% 95% at 50% 18%, #000 32%, transparent 78%);
+}
+
+/* Memungkinkan class dark: di Tailwind, mis. dark:bg-neutral-800 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* --- Warna dasar: skala neutral dibalik, "putih" jadi warna kartu gelap --- */
+:root.dark {
+  color-scheme: dark;
+  --color-white: #1d1d21; /* bg-white = permukaan kartu */
+  --color-neutral-50: #17171a;
+  --color-neutral-100: #1f1f23;
+  --color-neutral-200: #2c2c32; /* border */
+  --color-neutral-300: #3b3b43;
+  --color-neutral-400: #6f6f7a;
+  --color-neutral-500: #9d9da8; /* teks sekunder, kontras 6:1+ */
+  --color-neutral-600: #b6b6c0;
+  --color-neutral-700: #cfcfd7;
+  --color-neutral-800: #e3e3e8;
+  --color-neutral-900: #f1f1f4;
+  --color-neutral-950: #fafafa;
+}
+
+/* Latar halaman dan section */
+.dark body,
+.dark main {
+  background-color: #121214;
+}
+.dark section.bg-white {
+  background-color: #121214;
+}
+.dark section.bg-\[\#F7F7F7\] {
+  background-color: #0c0c0e;
+}
+
+/* Teks putih (tombol, ikon) tetap putih */
+.dark .text-white {
+  color: #fff;
+}
+
+/* Warna pastel -> versi gelap (kontras tetap lolos WCAG) */
+.dark .bg-\[\#F7F7F7\] {
+  background-color: #25252a;
+}
+.dark .bg-\[\#F1F0ED\] {
+  background-color: #121214;
+} /* pill menu navbar */
+.dark .bg-\[\#F6FBFF\] {
+  background-color: #15202a;
+}
+.dark .bg-\[\#FFFFF8\] {
+  background-color: #23231a;
+}
+.dark .bg-\[\#FAFEE0\] {
+  background-color: #20250f;
+}
+.dark .bg-\[\#FFF9F2\] {
+  background-color: #261c12;
+}
+.dark .bg-\[\#FFEDED\] {
+  background-color: #2c1618;
+}
+.dark .bg-red-50 {
+  background-color: #2c1618;
+}
+.dark .bg-green-50 {
+  background-color: #12281b;
+}
+.dark .bg-orange-50 {
+  background-color: #2b1d10;
+}
+.dark .border-\[\#DDDDDD\] {
+  border-color: #3b3b43;
+}
+/* Kartu kuning tetap kuning, teksnya tetap gelap */
+.dark .bg-\[\#FFD866\] {
+  --color-neutral-950: #0a0a0a;
+  --color-neutral-800: #1a1a1a;
+}
+
+/* Teks berwarna jadi lebih terang supaya terbaca di latar gelap */
+.dark .text-\[\#e60000\],
+.dark .text-\[\#FC0101\],
+.dark .text-\[\#b3180f\] {
+  color: #ff6b63;
+}
+.dark .text-\[\#e64406\] {
+  color: #ff8452;
+}
+.dark .text-\[\#E17916\] {
+  color: #f5a050;
+}
+.dark .text-\[\#c0160d\],
+.dark .text-red-600,
+.dark .text-red-700 {
+  color: #ff8f86;
+}
+.dark .text-\[\#16a349\],
+.dark .text-green-600,
+.dark .text-green-700 {
+  color: #5fe39a;
+}
+
+/* Dot grid di Hero: titik jadi terang tipis */
+.dark .dot-grid::before {
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.2) 1.2px,
+    transparent 1.5px
+  );
+}
+
+/* Pakai class "keep-light" pada elemen yang harus tetap tampil seperti mode terang
+   (mis. card project berwarna cerah). Isinya kembali memakai warna normal. */
+.dark .keep-light {
+  --color-white: #ffffff;
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  --color-neutral-950: #0a0a0a;
+}
+
+/* --- Animasi ganti tema: lingkaran membesar dari tombol (View Transitions API) --- */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 2;
 }
