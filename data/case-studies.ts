@@ -5,12 +5,12 @@ export type CaseMeta = {
 
 export const caseStudies: Record<string, CaseMeta> = {
   furtuna: {
-    title: "Furtuna & Ayogo | Billy Cheniago",
+    title: "Furtuna & Ayogo",
     description:
       "Integrated ticketing for Indonesian tourist attractions: kiosk, POS, online booking and live dashboards.",
   },
   cikarang: {
-    title: "Cikarang Listrindo | Billy Cheniago",
+    title: "Cikarang Listrindo",
     description:
       "Designing an integrated electricity service app for token purchases, service requests, and customer complaints.",
   },
