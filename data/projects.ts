@@ -10,8 +10,25 @@ export type Project = {
   valueColor: string; // warna angka statistik
 };
 
+// Urutan kartu di halaman depan = urutan di array ini.
 export const projects: Project[] = [
-  // ===== CARD 1: ASLI =====
+  // ===== CARD 1: FOREST FIRE COMMAND CENTER =====
+  // Thumbnail belum ada: upload mockup ke public/projects/forest-fire.png lalu hapus komentar image.
+  {
+    slug: "forest-fire",
+    title: "Forest Fire Command Center",
+    stats: [
+      { label: "Platform", value: "Web" },
+      { label: "Sections", value: "6 + 1" },
+      { label: "Status", value: "In training" },
+    ],
+    image: "/projects/forest-fire.png",
+    href: "/case/forest-fire",
+    gradient: "bg-linear-to-b from-[#C30F2C] to-[#9A0C24]",
+    valueColor: "text-amber-100",
+  },
+
+  // ===== CARD 2: FURTUNA =====
   {
     slug: "furtuna",
     title: "Under 2-Minute Ticketing for Tourist Attractions",
@@ -26,7 +43,24 @@ export const projects: Project[] = [
     valueColor: "text-amber-100",
   },
 
-  // ===== CARD 2: ASLI =====
+  // ===== CARD 3: ADIPPATI =====
+  // Thumbnail belum ada: upload mockup (PNG transparan ~545x443) ke public/projects/adippati.png
+  // lalu hapus tanda komentar pada baris image di bawah.
+  {
+    slug: "adippati",
+    title: "Securing Land Transactions with Digital Deeds",
+    stats: [
+      { label: "Platform", value: "Web + Mobile" },
+      { label: "Role", value: "UX & UI" },
+      { label: "Status", value: "Prototype" },
+    ],
+    image: "/projects/adippati-v2.png",
+    href: "/case/adippati",
+    gradient: "bg-linear-to-b from-[#027F6D] to-[#025C50]",
+    valueColor: "text-yellow-200",
+  },
+
+  // ===== CARD 4: CIKARANG LISTRINDO =====
   {
     slug: "cikarang-listrindo",
     title: "One App for Electricity Tokens, Services & Complaints",
@@ -40,34 +74,4 @@ export const projects: Project[] = [
     gradient: "bg-linear-to-b from-[#E8606A] to-[#A81010]",
     valueColor: "text-yellow-200",
   },
-
-  // ===== CARD 3: PLACEHOLDER =====
-  // {
-  //   slug: "tuntun-watchlist",
-  //   title: "Design Watchlist with a Unique First Time UX",
-  //   stats: [
-  //     { label: "Engagement", value: "60%" },
-  //     { label: "Influence Trx", value: "20%" },
-  //     { label: "Strong", value: "Retention" },
-  //   ],
-  //   image: "/projects/tuntun.png",
-  //   href: "#",
-  //   gradient: "bg-linear-to-br from-[#6D4BE8] via-[#4A2BB0] to-[#1B0F45]",
-  //   valueColor: "text-lime-300",
-  // },
-
-  // // ===== CARD 4: PLACEHOLDER =====
-  // {
-  //   slug: "placeholder-4",
-  //   title: "Design Watchlist with a Unique First Time UX",
-  //   stats: [
-  //     { label: "Engagement", value: "60%" },
-  //     { label: "Influence Trx", value: "20%" },
-  //     { label: "Strong", value: "Retention" },
-  //   ],
-  //   image: "/projects/tuntun.png",
-  //   href: "#",
-  //   gradient: "bg-linear-to-br from-[#6D4BE8] via-[#4A2BB0] to-[#1B0F45]",
-  //   valueColor: "text-lime-300",
-  // },
 ];

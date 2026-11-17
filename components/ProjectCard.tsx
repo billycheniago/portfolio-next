@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useSpring, useTransform } from "motion/react";
+import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "motion/react";
 import type { Project } from "@/data/projects";
 import Link from "next/link";
 
@@ -21,18 +21,24 @@ export default function ProjectCard({ project }: { project: Project }) {
   const y = useTransform(progress, [0, 1], [120, 0]);
   const opacity = useTransform(progress, [0, 1], [0, 1]);
 
+  // Parallax halus: mockup bergeser sedikit berlawanan arah dengan scroll
+  const reduce = useReducedMotion();
+  const { scrollYProgress: pass } = useScroll({ target: ref, offset: ["start end", "center center"] });
+  const imgY = useTransform(pass, [0, 1], [reduce ? 0 : 20, 0]);
+
   const hasBrand = Boolean(project.logo || project.brand);
 
   return (
     <motion.article
       ref={ref}
       style={{ y, opacity }}
+      whileTap={{ scale: 0.985 }}
       className={`keep-light relative grid overflow-hidden rounded-[1.75rem] md:grid-cols-2 md:rounded-[2rem] ${project.gradient}`}
     >
       <Link
         href={project.href}
         aria-label={`View case study: ${project.title}`}
-        className="absolute inset-0 z-10 md:hidden"
+        className="absolute inset-0 z-10 outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-white md:hidden"
       />
       {/* Teks */}
       <div className="flex flex-col items-start justify-center gap-5 p-6 md:gap-6 md:p-12">
@@ -77,7 +83,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         {/* Tombol: hanya desktop */}
         <a
           href={project.href}
-          className="hidden rounded-full bg-white px-6 py-3 text-base font-semibold text-neutral-900 shadow-md transition hover:bg-neutral-100 md:inline-flex"
+          className="hidden rounded-full bg-white px-6 py-3 text-base font-semibold text-neutral-900 shadow-md outline-none transition hover:-translate-y-0.5 hover:bg-neutral-100 focus-visible:ring-4 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900/40 active:translate-y-0 active:scale-95 md:inline-flex"
         >
           View Case Study
         </a>
@@ -86,7 +92,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       {/* Mockup: panel berbingkai di mobile, polos di desktop */}
       <div className="relative mx-5 mb-5 min-h-60 overflow-hidden rounded-2xl border border border-white/20 bg-white/10 sm:min-h-72 md:mx-0 md:mb-0 md:min-h-[26rem] md:rounded-none md:border-0 md:bg-transparent">
         {project.image && (
-          <div className="absolute bottom-0 left-4 right-4 top-4 md:left-8 md:right-10 md:top-10">
+          <motion.div style={{ y: imgY }} className="absolute bottom-0 left-4 right-4 top-4 md:left-8 md:right-10 md:top-10">
             <Image
               src={project.image}
               alt={`Mockup ${project.title}`}
@@ -94,7 +100,7 @@ export default function ProjectCard({ project }: { project: Project }) {
               sizes="(min-width: 768px) 40vw, 90vw"
               className="object-contain object-bottom"
             />
-          </div>
+          </motion.div>
         )}
       </div>
     </motion.article>

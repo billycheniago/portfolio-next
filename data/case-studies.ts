@@ -14,4 +14,14 @@ export const caseStudies: Record<string, CaseMeta> = {
     description:
       "Designing an integrated electricity service app for token purchases, service requests, and customer complaints.",
   },
+  adippati: {
+    title: "ADIPPATI",
+    description:
+      "UI for remote, recorded deed signing on web and mobile: a prototype handed over, not yet usability-tested.",
+  },
+  "forest-fire": {
+    title: "Forest Fire Command Center",
+    description:
+      "Interface and interaction design for a forest-fire control room in South Sumatra: complete, in client training.",
+  },
 };

@@ -6,11 +6,18 @@ import { ChevronLeft } from "lucide-react";
 import { caseStudies } from "@/data/case-studies";
 import FurtunaCaseStudy from "@/components/case/furtuna/FurtunaCaseStudy";
 import CikarangCaseStudy from "@/components/case/cikarang/CikarangCaseStudy";
+import CaseNav from "@/components/case/CaseNav";
+import ScrollProgress from "@/components/case/ScrollProgress";
+import { caseLook } from "@/components/case/caseLook";
+import AdippatiCaseStudy from "@/components/case/adippati/AdippatiCaseStudy";
+import ForestFireCaseStudy from "@/components/case/forest-fire/ForestFireCaseStudy";
 export const instant = false;
 
 const pages: Record<string, ComponentType> = {
   furtuna: FurtunaCaseStudy,
   cikarang: CikarangCaseStudy,
+  adippati: AdippatiCaseStudy,
+  "forest-fire": ForestFireCaseStudy,
 };
 
 export function generateStaticParams() {
@@ -39,6 +46,7 @@ export default async function CasePage({
 
   return (
     <main className="relative bg-white text-neutral-900">
+      <ScrollProgress color={caseLook[slug]?.accent ?? "#171717"} />
       {/* Wrapper setinggi 0 yang sticky: pill ikut turun selama halaman di-scroll */}
       <div className="pointer-events-none sticky top-5 z-50 h-0">
         <div className="mx-auto w-full max-w-[1240px] px-5 sm:px-6">
@@ -54,6 +62,7 @@ export default async function CasePage({
         </div>
       </div>
       <Page />
+      <CaseNav slug={slug} />
     </main>
   );
 }
