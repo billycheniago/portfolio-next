@@ -16,7 +16,7 @@ export const projects: Project[] = [
   // Thumbnail belum ada: upload mockup ke public/projects/forest-fire.png lalu hapus komentar image.
   {
     slug: "forest-fire",
-    title: "Forest Fire Command Center",
+    title: "Turning Scattered Fire Data into One Control-Room Screen",
     stats: [
       { label: "Platform", value: "Web" },
       { label: "Sections", value: "6 + 1" },
