@@ -1,6 +1,9 @@
 import { Building2, HandCoins, LifeBuoy, MapPin, Users, Wallet, type LucideIcon } from "lucide-react";
 import Section, { SectionHeading } from "../Section";
 import Pic from "./Pic";
+import InteractiveCard from "../InteractiveCard";
+
+const RGB = "225,121,22";
 
 const features: { icon: LucideIcon; title: string; text: string }[] = [
   { icon: Users, title: "Staff Management", text: "Add, edit, and deactivate employees who operate kiosks and POS devices at each tourist location." },
@@ -23,14 +26,14 @@ export default function DashboardSection() {
       </div>
       <h3 className="mt-14 text-center text-xl font-bold text-neutral-950">Dashboard Features</h3>
       <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {features.map((f) => (
-          <div key={f.title} className="rounded-2xl bg-white p-5 shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
+        {features.map((f, i) => (
+          <InteractiveCard key={f.title} index={i} rgb={RGB} className="rounded-2xl bg-white p-5 shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
             <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#e64406]/10 text-[#e64406]">
               <f.icon size={20} />
             </span>
             <h4 className="mt-3 text-base font-bold text-neutral-950">{f.title}</h4>
             <p className="mt-1 text-sm leading-relaxed text-neutral-600">{f.text}</p>
-          </div>
+          </InteractiveCard>
         ))}
       </div>
     </Section>

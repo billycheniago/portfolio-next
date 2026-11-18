@@ -1,4 +1,8 @@
 import Pic from "./Pic";
+import HeroParallax from "../HeroParallax";
+import InteractiveCard from "../InteractiveCard";
+
+const RGB = "230,0,0";
 
 const info = [
   { label: "Role", value: "Product Designer (UX & UI)" },
@@ -9,7 +13,7 @@ const info = [
 
 export default function Hero() {
   return (
-    <section className="bg-white px-5 pb-16 pt-28 sm:px-6 md:pb-24 md:pt-32">
+    <HeroParallax className="bg-white px-5 pb-16 pt-28 sm:px-6 md:pb-24 md:pt-32">
       <div className="mx-auto max-w-[1240px]">
         <div className="text-center">
           <p className="text-sm font-semibold text-neutral-500 md:text-base">
@@ -25,13 +29,13 @@ export default function Hero() {
         </div>
 
         <dl className="mt-10 grid gap-4 sm:grid-cols-2 md:mt-12 lg:grid-cols-4 lg:gap-5">
-          {info.map((item) => (
-            <div key={item.label} className="rounded-2xl border border-neutral-300 bg-white p-5 shadow-sm">
+          {info.map((item, i) => (
+            <InteractiveCard key={item.label} index={i} rgb={RGB} className="rounded-2xl border border-neutral-300 bg-white p-5 shadow-sm">
               <dt className="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-700">
                 {item.label}
               </dt>
               <dd className="mt-3 text-sm font-bold text-neutral-950 md:text-base">{item.value}</dd>
-            </div>
+            </InteractiveCard>
           ))}
         </dl>
 
@@ -45,6 +49,6 @@ export default function Hero() {
           />
         </div>
       </div>
-    </section>
+    </HeroParallax>
   );
 }

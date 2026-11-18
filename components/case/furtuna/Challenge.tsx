@@ -1,6 +1,9 @@
 import Section from "../Section";
 import Pic from "./Pic";
 import type { AssetName } from "./assets";
+import InteractiveCard from "../InteractiveCard";
+
+const RGB = "225,121,22";
 
 type Pain = { name: AssetName; text: string };
 
@@ -20,16 +23,18 @@ function PainGroup({ items, label }: { items: Pain[]; label: string }) {
   return (
     <div>
       <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
-        {items.map((p) => (
-          <div
+        {items.map((p, i) => (
+          <InteractiveCard
             key={p.name}
+            index={i}
+            rgb={RGB}
             className="flex flex-col items-center gap-2 rounded-xl bg-[#FFD866] px-2 py-4 text-center sm:gap-3 sm:px-3"
           >
             <Pic name={p.name} alt="" sizes="64px" className="w-10 sm:w-14" />
             <p className="text-[10px] font-bold leading-snug text-neutral-950 sm:text-xs md:text-[13px]">
               {p.text}
             </p>
-          </div>
+          </InteractiveCard>
         ))}
       </div>
       {/* Kurung penghubung antar kartu */}
@@ -45,7 +50,7 @@ const cardClass =
 export default function Challenge() {
   return (
     <Section gray>
-      <div className={cardClass}>
+      <InteractiveCard rgb={RGB} className={cardClass}>
         <h2 className="text-lg font-bold uppercase tracking-[0.12em] text-[#e60000] md:text-[22px]">
           The challenge
         </h2>
@@ -56,14 +61,14 @@ export default function Challenge() {
           under-reporting. The MVP also had a fixed deadline: a demo-ready product for the
           SMESCO exhibition in June 2024.
         </p>
-      </div>
+      </InteractiveCard>
 
       <div className="mt-10 grid gap-10 md:mt-12 md:grid-cols-2 md:gap-6">
         <PainGroup items={operational} label="Operational pain" />
         <PainGroup items={trust} label="Trust and governance pain" />
       </div>
 
-      <div className={`${cardClass} mt-12`}>
+      <InteractiveCard rgb={RGB} index={1} className={`${cardClass} mt-12`}>
         <h2 className="text-lg font-bold uppercase tracking-[0.12em] text-[#16a349] md:text-[22px]">
           The solution
         </h2>
@@ -72,7 +77,7 @@ export default function Challenge() {
           on-site at a Furtuna kiosk, staff issue tickets at a POS, and every transaction flows
           into a role-based dashboard where partners and governments see sales in real time.
         </p>
-      </div>
+      </InteractiveCard>
     </Section>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import {
   AnimatePresence,
@@ -23,7 +23,29 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { scrollY } = useScroll();
 
+  // Menu aktif mengikuti bagian yang sedang dilihat
+  const spy = () => {
+    const nearBottom =
+      window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8;
+    let current = links[0].label;
+    if (nearBottom) {
+      current = links[links.length - 1].label;
+    } else {
+      for (const l of links) {
+        const el = document.getElementById(l.href.slice(1));
+        if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.4) current = l.label;
+      }
+    }
+    setActive(current);
+  };
+
+  useEffect(() => {
+    spy();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   useMotionValueEvent(scrollY, "change", (latest) => {
+    spy();
     const previous = scrollY.getPrevious() ?? 0;
     const shouldHide = latest > previous && latest > 20;
     setHidden(shouldHide);
@@ -99,7 +121,8 @@ export default function Navbar() {
                 <a
                   href={href}
                   onClick={() => setActive(label)}
-                  className={`relative flex items-center gap-2 rounded-full px-6 text-base font-medium transition-all duration-300 ${
+                  aria-current={isActive ? "location" : undefined}
+                  className={`relative flex items-center gap-2 rounded-full px-6 text-base font-medium transition-all duration-300 active:scale-95 ${
                     scrolled ? "py-2" : "py-3"
                   } ${
                     isActive

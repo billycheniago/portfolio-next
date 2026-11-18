@@ -1,6 +1,9 @@
 import Section, { SectionHeading } from "../Section";
 import Pic from "./Pic";
 import type { AssetName } from "./assets";
+import InteractiveCard from "../InteractiveCard";
+
+const RGB = "225,121,22";
 
 const decisions: { n: string; tag: string; title: string; img: AssetName; problem: string; chose: string; impact: string }[] = [
   { n: "01", tag: "Kiosk / Entry", title: "Two clear entry paths on the kiosk", img: "decision-01", problem: "Visitors arrived either with an Ayogo booking or with no ticket, and mixing both paths confused the gate.", chose: "A kiosk home with two primary actions, \"Scan booking\" and \"Buy ticket\".", impact: "Staff can guide visitors in one sentence, and fewer people enter the wrong flow." },
@@ -17,8 +20,8 @@ export default function Decisions() {
         subtitle="Four decisions that improved speed at the gate and trust in the numbers."
       />
       <div className="mt-10 grid gap-6 md:grid-cols-2">
-        {decisions.map((d) => (
-          <article key={d.n} className="overflow-hidden rounded-2xl border border-neutral-200 bg-white">
+        {decisions.map((d, i) => (
+          <InteractiveCard as="article" key={d.n} index={i} rgb={RGB} className="overflow-hidden rounded-2xl border border-neutral-200 bg-white">
             <div className="p-5 pb-0 md:p-6 md:pb-0">
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-neutral-500">
                 <span className="mr-2 text-[#e64406]">{d.n}</span>
@@ -35,7 +38,7 @@ export default function Decisions() {
                 </div>
               ))}
             </dl>
-          </article>
+          </InteractiveCard>
         ))}
       </div>
     </Section>

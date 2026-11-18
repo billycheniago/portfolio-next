@@ -1,6 +1,9 @@
 import Section, { SectionHeading } from "../Section";
 import Pic from "./Pic";
 import type { AssetName } from "./assets";
+import InteractiveCard from "../InteractiveCard";
+
+const RGB = "225,121,22";
 
 const personas: {
   avatar: AssetName;
@@ -46,9 +49,12 @@ export default function Users() {
       />
 
       <div className="mt-10 grid gap-5 md:grid-cols-3">
-        {personas.map((p) => (
-          <article
+        {personas.map((p, i) => (
+          <InteractiveCard
+            as="article"
             key={p.name}
+            index={i}
+            rgb={RGB}
             className={`${p.bg} rounded-2xl p-4 shadow-[0_4px_20px_rgba(0,0,0,0.07)] ring-1 ring-black/[0.04] md:p-5`}
           >
             <header className="flex items-center gap-4 border-b border-neutral-200 pb-4">
@@ -67,7 +73,7 @@ export default function Users() {
                 <p className="mt-2 text-sm leading-relaxed text-neutral-800">{text}</p>
               </div>
             ))}
-          </article>
+          </InteractiveCard>
         ))}
       </div>
 

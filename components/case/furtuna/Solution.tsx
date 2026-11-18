@@ -2,6 +2,9 @@ import { Check, X } from "lucide-react";
 import Section, { SectionHeading } from "../Section";
 import Pic from "./Pic";
 import type { AssetName } from "./assets";
+import InteractiveCard from "../InteractiveCard";
+
+const RGB = "225,121,22";
 
 const items: { n: string; title: string; before: string; after: string }[] = [
   { n: "01", title: "Ticket sales", before: "Manual counters and paper tickets", after: "Self-service kiosk and staff POS, tickets printed on the spot" },
@@ -25,8 +28,8 @@ export default function Solution() {
         subtitle="One ecosystem replaces the paper workflow, from online booking to the government dashboard."
       />
       <div className="mt-10 grid gap-5 md:grid-cols-2">
-        {items.map((i) => (
-          <div key={i.n} className="rounded-2xl bg-[#F7F7F7] p-5 md:p-6">
+        {items.map((i, idx) => (
+          <InteractiveCard key={i.n} index={idx} rgb={RGB} className="rounded-2xl bg-[#F7F7F7] p-5 md:p-6">
             <h3 className="text-base font-bold text-neutral-950 md:text-lg">
               <span className="mr-2 text-[#e64406]">{i.n}</span>
               {i.title}
@@ -45,7 +48,7 @@ export default function Solution() {
                 <p className="mt-2 text-sm text-neutral-800">{i.after}</p>
               </div>
             </div>
-          </div>
+          </InteractiveCard>
         ))}
       </div>
 

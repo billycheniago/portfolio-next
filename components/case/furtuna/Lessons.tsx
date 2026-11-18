@@ -1,6 +1,9 @@
 import Section, { SectionHeading } from "../Section";
 import Pic from "./Pic";
 import type { AssetName } from "./assets";
+import InteractiveCard from "../InteractiveCard";
+
+const RGB = "225,121,22";
 
 const lessons: { img: AssetName; title: string; text: string }[] = [
   { img: "lesson-1", title: "Protect simplicity at the gate", text: "Public kiosks are noisy and rushed, so the path to a printed ticket has to stay extremely short. Two entry actions, Adult / Child tiles and automatic pricing all serve that rule." },
@@ -13,12 +16,12 @@ export default function Lessons() {
     <Section gray>
       <SectionHeading title="Three lessons I carry forward" center />
       <div className="mt-10 grid gap-5 md:grid-cols-3">
-        {lessons.map((l) => (
-          <div key={l.title} className="rounded-2xl bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
+        {lessons.map((l, i) => (
+          <InteractiveCard key={l.title} index={i} rgb={RGB} className="rounded-2xl bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
             <Pic name={l.img} alt="" sizes="64px" className="w-14" />
             <h3 className="mt-4 text-lg font-bold text-neutral-950">{l.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-neutral-700">{l.text}</p>
-          </div>
+          </InteractiveCard>
         ))}
       </div>
     </Section>

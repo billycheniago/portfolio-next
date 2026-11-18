@@ -162,6 +162,7 @@ export function ZoomImage({
   asset,
   alt,
   sizes,
+  priority = false,
   className = "",
   style,
   frameClassName = "",
@@ -169,6 +170,7 @@ export function ZoomImage({
   asset: { src: string; w: number; h: number };
   alt: string;
   sizes: string;
+  priority?: boolean;
   className?: string;
   style?: CSSProperties;
   frameClassName?: string;
@@ -181,7 +183,7 @@ export function ZoomImage({
       aria-label={`Enlarge: ${alt}`}
       className={`group relative block w-full cursor-zoom-in outline-none transition duration-200 focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-sky-500/80 active:scale-[0.99] motion-reduce:transition-none ${frameClassName}`}
     >
-      <Image src={asset.src} width={asset.w} height={asset.h} alt={alt} sizes={sizes} className={className} style={style} />
+      <Image src={asset.src} width={asset.w} height={asset.h} alt={alt} sizes={sizes} priority={priority} className={className} style={style} />
       <span className="pointer-events-none absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-white opacity-100 backdrop-blur-sm transition md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100">
         <ZoomIn size={18} />
       </span>

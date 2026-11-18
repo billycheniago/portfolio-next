@@ -1,5 +1,8 @@
 import { History, ShieldCheck, Wand2 } from "lucide-react";
 import Section, { SectionHeading } from "../Section";
+import InteractiveCard from "../InteractiveCard";
+
+const RGB = "230,0,0";
 
 const lessons = [
   { icon: ShieldCheck, title: "The call I'd defend", text: "A home screen that answers “How much am I using?” and “What should I do next?”, with core tasks one or two taps away, kept a complex system feeling simple." },
@@ -12,12 +15,12 @@ export default function Lessons() {
     <Section>
       <SectionHeading title="Three lessons I carry forward" />
       <div className="mt-10 grid gap-5 md:grid-cols-3">
-        {lessons.map((l) => (
-          <div key={l.title} className="rounded-2xl bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.06)] ring-1 ring-black/[0.04]">
+        {lessons.map((l, i) => (
+          <InteractiveCard key={l.title} index={i} rgb={RGB} className="rounded-2xl bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.06)] ring-1 ring-black/[0.04]">
             <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#e60000] text-white"><l.icon size={22} /></span>
             <h3 className="mt-4 text-lg font-bold text-neutral-950">{l.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-neutral-700">{l.text}</p>
-          </div>
+          </InteractiveCard>
         ))}
       </div>
     </Section>

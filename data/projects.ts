@@ -8,6 +8,7 @@ export type Project = {
   href: string; // tujuan tombol View Case Study
   gradient: string; // kelas Tailwind untuk latar kartu
   valueColor: string; // warna angka statistik
+  status?: { label: string; dot: string; pulse?: boolean }; // chip status di atas judul (dot = kelas warna Tailwind)
 };
 
 // Urutan kartu di halaman depan = urutan di array ini.
@@ -20,8 +21,9 @@ export const projects: Project[] = [
     stats: [
       { label: "Platform", value: "Web" },
       { label: "Sections", value: "6 + 1" },
-      { label: "Status", value: "In training" },
+      { label: "Users", value: "4 roles" },
     ],
+    status: { label: "In client training", dot: "bg-emerald-300", pulse: true },
     image: "/projects/forest-fire.png",
     href: "/case/forest-fire",
     gradient: "bg-linear-to-b from-[#C30F2C] to-[#9A0C24]",
@@ -37,6 +39,7 @@ export const projects: Project[] = [
       { label: "System", value: "4-in-1" },
       { label: "Validated", value: "SMESCO" },
     ],
+    status: { label: "MVP demoed · Jun 2024", dot: "bg-emerald-300" },
     image: "/projects/furtuna.png",
     href: "/case/furtuna",
     gradient: "bg-linear-to-b from-[#E8944A] to-[#C25A0A]",
@@ -52,8 +55,9 @@ export const projects: Project[] = [
     stats: [
       { label: "Platform", value: "Web + Mobile" },
       { label: "Role", value: "UX & UI" },
-      { label: "Status", value: "Prototype" },
+      { label: "Users", value: "3 roles" },
     ],
+    status: { label: "Prototype", dot: "bg-amber-300" },
     image: "/projects/adippati-v2.png",
     href: "/case/adippati",
     gradient: "bg-linear-to-b from-[#027F6D] to-[#025C50]",
@@ -69,6 +73,7 @@ export const projects: Project[] = [
       { label: "Services", value: "4 Modules" },
       { label: "Core Tasks", value: "≤ 2 Taps" },
     ],
+    status: { label: "MVP built", dot: "bg-emerald-300" },
     image: "/projects/cikarang.png",
     href: "/case/cikarang",
     gradient: "bg-linear-to-b from-[#E8606A] to-[#A81010]",

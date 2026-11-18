@@ -59,6 +59,20 @@ export default function ProjectCard({ project }: { project: Project }) {
           ) : null}
         </div>
 
+        {project.status && (
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/15 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm md:text-sm">
+            <span className="relative flex h-2 w-2" aria-hidden>
+              {project.status.pulse && (
+                <span
+                  className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 motion-reduce:hidden ${project.status.dot}`}
+                />
+              )}
+              <span className={`relative inline-flex h-2 w-2 rounded-full ${project.status.dot}`} />
+            </span>
+            {project.status.label}
+          </span>
+        )}
+
         <h3 className="max-w-md text-2xl font-bold leading-tight text-white md:text-4xl">
           {project.title}
         </h3>

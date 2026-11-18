@@ -1,5 +1,8 @@
 import { ClipboardList, FlaskConical } from "lucide-react";
 import Section, { SectionHeading } from "../Section";
+import InteractiveCard from "../InteractiveCard";
+
+const RGB = "230,0,0";
 
 const cards = [
   {
@@ -19,14 +22,14 @@ export default function Users() {
     <Section>
       <SectionHeading title="Users and key insight" center />
       <div className="mt-10 grid gap-6 md:grid-cols-2">
-        {cards.map((c) => (
-          <div key={c.title} className="rounded-2xl bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.07)] ring-1 ring-black/[0.04] md:p-8">
+        {cards.map((c, i) => (
+          <InteractiveCard key={c.title} index={i} rgb={RGB} className="rounded-2xl bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.07)] ring-1 ring-black/[0.04] md:p-8">
             <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#b3180f] text-white">
               <c.icon size={22} />
             </span>
             <h3 className="mt-5 text-sm font-bold uppercase tracking-[0.08em] text-neutral-950">{c.title}</h3>
             <p className="mt-3 text-sm leading-relaxed text-neutral-800">{c.text}</p>
-          </div>
+          </InteractiveCard>
         ))}
       </div>
       <aside className="mt-6 rounded-2xl border border-[#DDDDDD] bg-[#E17916]/10 p-6 md:p-8">

@@ -1,4 +1,7 @@
 import Section, { SectionHeading } from "../Section";
+import InteractiveCard from "../InteractiveCard";
+
+const RGB = "230,0,0";
 
 const decisions = [
   { n: "01", title: "A home screen built around two everyday questions", designed: "A home screen showing the selected meter, a usage chart, shortcuts to buy tokens, make complaints and open services, and space for news from Cikarang Listrindo.", rationale: "I framed the screen around two questions a prepaid customer is likely to have, “How much am I using?” and “What should I do next?”, so usage and the main shortcuts come first instead of a menu of every service.", tradeoff: "Giving usage and shortcuts priority leaves less room for less frequent services and news, which must stay easy to reach without crowding the screen.", validate: "Whether residents find the usage chart and the right shortcut without guidance." },
@@ -22,8 +25,8 @@ export default function Decisions() {
         center
       />
       <div className="mt-10 grid gap-6 md:grid-cols-2">
-        {decisions.map((d) => (
-          <article key={d.n} className="flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
+        {decisions.map((d, i) => (
+          <InteractiveCard as="article" key={d.n} index={i} rgb={RGB} className="flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
             <div className="flex-1 p-5 md:p-6">
               <p className="text-4xl font-medium text-[#b3180f] md:text-5xl">{d.n}</p>
               <h3 className="mt-3 border-b border-neutral-200 pb-4 text-lg font-bold text-neutral-950">{d.title}</h3>
@@ -38,7 +41,7 @@ export default function Decisions() {
               <h4 className="font-mono text-[11px] font-medium uppercase tracking-widest text-neutral-600">To validate</h4>
               <p className="mt-2 text-sm leading-relaxed text-[#c0160d]">{d.validate}</p>
             </div>
-          </article>
+          </InteractiveCard>
         ))}
       </div>
     </Section>

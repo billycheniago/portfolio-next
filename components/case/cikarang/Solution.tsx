@@ -2,6 +2,9 @@ import { Check, X } from "lucide-react";
 import Section, { SectionHeading } from "../Section";
 import Pic from "./Pic";
 import type { AssetName } from "./assets";
+import InteractiveCard from "../InteractiveCard";
+
+const RGB = "230,0,0";
 
 const items = [
   { n: "01", title: "Buying tokens", before: "Bank channels, agents or counters; no token history in one place", after: "Token purchase and history in one app" },
@@ -22,8 +25,8 @@ export default function Solution() {
     <Section gray>
       <SectionHeading title="The solution" subtitle="One app for the everyday tasks of a prepaid electricity customer" center />
       <div className="mt-10 grid gap-5 md:grid-cols-2">
-        {items.map((i) => (
-          <div key={i.n} className="rounded-2xl bg-white p-5 shadow-[0_4px_20px_rgba(0,0,0,0.06)] md:p-6">
+        {items.map((i, idx) => (
+          <InteractiveCard key={i.n} index={idx} rgb={RGB} className="rounded-2xl bg-white p-5 shadow-[0_4px_20px_rgba(0,0,0,0.06)] md:p-6">
             <h3 className="text-lg font-bold text-neutral-950">
               <span className="mr-2 text-[#FC7A01]">{i.n}</span>
               {i.title}
@@ -38,7 +41,7 @@ export default function Solution() {
                 <p className="mt-2 text-sm text-neutral-800">{i.after}</p>
               </div>
             </div>
-          </div>
+          </InteractiveCard>
         ))}
       </div>
       <div className="mt-12 grid gap-8 sm:grid-cols-2 md:gap-10">

@@ -1,6 +1,9 @@
 import Section, { SectionHeading } from "../Section";
 import Pic from "./Pic";
 import type { AssetName } from "./assets";
+import InteractiveCard from "../InteractiveCard";
+
+const RGB = "225,121,22";
 
 const items: { img: AssetName; who: string; headline: string; before: string; after: string }[] = [
   { img: "outcome-visitors", who: "Visitors", headline: "A clearer way in.", before: "Guessing which line and which ticket", after: "Scan a booking or buy on site in a short, predictable flow" },
@@ -17,8 +20,8 @@ export default function Outcomes() {
         subtitle="Faster entry for visitors and more trustworthy revenue numbers for owners. These results come from internal testing, early pilot feedback and the SMESCO exhibition, not post-launch analytics."
       />
       <div className="mt-10 grid gap-6 md:grid-cols-2">
-        {items.map((o) => (
-          <article key={o.who} className="overflow-hidden rounded-2xl bg-[#FFF9F2] ring-1 ring-black/[0.04]">
+        {items.map((o, i) => (
+          <InteractiveCard as="article" key={o.who} index={i} rgb={RGB} className="overflow-hidden rounded-2xl bg-[#FFF9F2] ring-1 ring-black/[0.04]">
             <div className="p-5 pb-0 md:p-6 md:pb-0">
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#E17916]">{o.who}</p>
               <h3 className="mt-1 text-xl font-bold text-neutral-950">{o.headline}</h3>
@@ -34,7 +37,7 @@ export default function Outcomes() {
                 <dd className="text-neutral-800">{o.after}</dd>
               </div>
             </dl>
-          </article>
+          </InteractiveCard>
         ))}
       </div>
     </Section>
