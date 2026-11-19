@@ -17,10 +17,10 @@ import type { PointerEvent } from "react";
 import Counter from "@/components/Counter";
 
 const stats = [
-  { to: 6, suffix: "", label: "Years experience" },
-  { to: 6, suffix: "", label: "Multi-Industry Clients" },
-  { to: 20, suffix: "", label: "Delivered Projects" },
-  { to: 95, suffix: "%", label: "Client Satisfaction" },
+  { to: 6, plus: true, label: "Years designing" },
+  { to: 4, plus: false, label: "Case studies" },
+  { to: 4, plus: false, label: "Industries" },
+  { to: 3, plus: false, label: "Platforms" },
 ];
 
 // Urutan chip: UI/UX Designer lebih menonjol karena itu pengalaman utama.
@@ -148,11 +148,7 @@ export default function Hero() {
                       animate: { opacity: 1, y: 0, scale: 1 },
                       transition: { duration: 0.5, delay: 0.05 + i * 0.1, ease: EASE },
                     })}
-                className={`inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm font-semibold ${
-                  i === 0
-                    ? "border-transparent bg-linear-to-b from-accent-from to-accent-to text-white shadow-md shadow-accent/30"
-                    : "border-neutral-200 bg-white text-neutral-800 shadow-sm"
-                }`}
+                className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-1.5 text-sm font-semibold text-neutral-800 shadow-sm"
               >
                 {role}
               </motion.li>
@@ -198,8 +194,8 @@ export default function Hero() {
             {stats.map((stat) => (
               <div key={stat.label}>
                 <p className="text-2xl font-bold tabular-nums text-neutral-900 sm:text-3xl lg:text-3xl">
-                  <Counter to={stat.to} suffix={stat.suffix} />
-                  <span className="text-accent">+</span>
+                  <Counter to={stat.to} />
+                  {stat.plus && <span className="text-accent">+</span>}
                 </p>
                 <p className="mt-1 text-sm text-neutral-500">{stat.label}</p>
               </div>

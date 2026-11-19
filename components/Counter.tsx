@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { animate, useInView } from "motion/react";
+import { animate, useInView, useReducedMotion } from "motion/react";
 
 type Props = {
   to: number;
@@ -18,10 +18,11 @@ export default function Counter({
 }: Props) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true });
+  const reduce = useReducedMotion();
 
   useEffect(() => {
     const node = ref.current;
-    if (!inView || !node) return;
+    if (!inView || !node || reduce) return;
 
     const controls = animate(0, to, {
       duration,
@@ -33,7 +34,10 @@ export default function Counter({
     });
 
     return () => controls.stop();
-  }, [inView, to, suffix, duration, delay]);
+  }, [inView, reduce, to, suffix, duration, delay]);
 
-  return <span ref={ref}>0{suffix}</span>;
+  return <span ref={ref}>
+      {to}
+      {suffix}
+    </span>;
 }

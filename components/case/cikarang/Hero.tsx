@@ -1,11 +1,10 @@
 import Pic from "./Pic";
-import HeroParallax from "../HeroParallax";
 import InteractiveCard from "../InteractiveCard";
 
 const RGB = "230,0,0";
 
 const info = [
-  { label: "Role", value: "Product Designer (UX & UI)" },
+  { label: "Role", value: "UI/UX Designer" },
   { label: "Platform", value: "iOS, Android and responsive web" },
   { label: "Tools", value: "Figma" },
   { label: "Status", value: "MVP built; next phase awaiting client" },
@@ -13,7 +12,7 @@ const info = [
 
 export default function Hero() {
   return (
-    <HeroParallax className="bg-white px-5 pb-16 pt-28 sm:px-6 md:pb-24 md:pt-32">
+    <section className="overflow-hidden bg-white px-5 pb-16 pt-28 sm:px-6 md:pb-24 md:pt-32">
       <div className="mx-auto max-w-[1240px]">
         <div className="text-center">
           <p className="text-sm font-semibold text-neutral-500 md:text-base">
@@ -49,6 +48,6 @@ export default function Hero() {
           />
         </div>
       </div>
-    </HeroParallax>
+    </section>
   );
 }

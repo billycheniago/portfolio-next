@@ -8,6 +8,7 @@ export type Project = {
   href: string; // tujuan tombol View Case Study
   gradient: string; // kelas Tailwind untuk latar kartu
   valueColor: string; // warna angka statistik
+  role?: string; // chip peran di atas judul
   status?: { label: string; dot: string; pulse?: boolean }; // chip status di atas judul (dot = kelas warna Tailwind)
 };
 
@@ -23,6 +24,7 @@ export const projects: Project[] = [
       { label: "Sections", value: "6 + 1" },
       { label: "Users", value: "4 roles" },
     ],
+    role: "UI/UX Designer",
     status: { label: "In client training", dot: "bg-emerald-300", pulse: true },
     image: "/projects/forest-fire.png",
     href: "/case/forest-fire",
@@ -37,8 +39,9 @@ export const projects: Project[] = [
     stats: [
       { label: "Checkout Time", value: "< 2 min" },
       { label: "System", value: "4-in-1" },
-      { label: "Validated", value: "SMESCO" },
+      { label: "Demoed", value: "SMESCO" },
     ],
+    role: "Product Designer & PM",
     status: { label: "MVP demoed · Jun 2024", dot: "bg-emerald-300" },
     image: "/projects/furtuna.png",
     href: "/case/furtuna",
@@ -54,9 +57,9 @@ export const projects: Project[] = [
     title: "Securing Land Transactions with Digital Deeds",
     stats: [
       { label: "Platform", value: "Web + Mobile" },
-      { label: "Role", value: "UX & UI" },
       { label: "Users", value: "3 roles" },
     ],
+    role: "UI/UX Designer",
     status: { label: "Prototype", dot: "bg-amber-300" },
     image: "/projects/adippati-v2.png",
     href: "/case/adippati",
@@ -69,10 +72,10 @@ export const projects: Project[] = [
     slug: "cikarang-listrindo",
     title: "One App for Electricity Tokens, Services & Complaints",
     stats: [
-      { label: "Platform", value: "3" },
-      { label: "Services", value: "4 Modules" },
+      { label: "Platform", value: "iOS, Android, Web" },
       { label: "Core Tasks", value: "≤ 2 Taps" },
     ],
+    role: "UI/UX Designer",
     status: { label: "MVP built", dot: "bg-emerald-300" },
     image: "/projects/cikarang.png",
     href: "/case/cikarang",

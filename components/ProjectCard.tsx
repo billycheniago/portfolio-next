@@ -59,6 +59,8 @@ export default function ProjectCard({ project }: { project: Project }) {
           ) : null}
         </div>
 
+        {(project.status || project.role) && (
+          <div className="flex flex-wrap items-center gap-2">
         {project.status && (
           <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/15 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm md:text-sm">
             <span className="relative flex h-2 w-2" aria-hidden>
@@ -71,6 +73,13 @@ export default function ProjectCard({ project }: { project: Project }) {
             </span>
             {project.status.label}
           </span>
+        )}
+        {project.role && (
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/15 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm md:text-sm">
+            {project.role}
+          </span>
+        )}
+          </div>
         )}
 
         <h3 className="max-w-md text-2xl font-bold leading-tight text-white md:text-4xl">

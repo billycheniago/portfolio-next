@@ -1,18 +1,17 @@
 import Pic from "./Pic";
-import HeroParallax from "../HeroParallax";
 import InteractiveCard from "../InteractiveCard";
 
 const RGB = "225,121,22";
 
 const info = [
-  { label: "Role", value: "Product Designer + Product Manager" },
+  { label: "Role", value: "Product Designer and Product Manager" },
   { label: "Users", value: "Visitors · Ticket staff · Government and partners" },
-  { label: "Key date", value: "MVP demo at SMESCO, June 2024" },
+  { label: "Status", value: "MVP demoed at SMESCO, June 2024" },
 ];
 
 export default function Hero() {
   return (
-    <HeroParallax className="bg-white px-5 pb-16 pt-28 sm:px-6 md:pb-24 md:pt-32">
+    <section className="overflow-hidden bg-white px-5 pb-16 pt-28 sm:px-6 md:pb-24 md:pt-32">
       <div className="mx-auto max-w-[1240px]">
         <div className="text-center">
           <p className="text-sm font-semibold text-neutral-500 md:text-base">
@@ -53,6 +52,6 @@ export default function Hero() {
           />
         </div>
       </div>
-    </HeroParallax>
+    </section>
   );
 }
