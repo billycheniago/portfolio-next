@@ -17,7 +17,7 @@ export default function Outcomes() {
     <Section>
       <SectionHeading
         title="Outcomes & impact"
-        subtitle="Faster entry for visitors and more trustworthy revenue numbers for owners. These results come from internal testing, early pilot feedback and the SMESCO exhibition, not post-launch analytics."
+        subtitle="Faster entry for visitors and more trustworthy revenue numbers for owners. These results come from internal testing, early pilot feedback and the SMESCO exhibition, not post-launch analytics. The business later discontinued commercialization, so no post-launch data exists."
       />
       <div className="mt-10 grid gap-6 md:grid-cols-2">
         {items.map((o, i) => (

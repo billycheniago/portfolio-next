@@ -87,13 +87,17 @@ export default function ProjectCard({ project }: { project: Project }) {
         </h3>
 
         {/* Statistik: 3 kolom di mobile, berjajar di desktop */}
-        <div className="grid w-full grid-cols-3 gap-2 md:flex md:w-auto md:flex-wrap md:gap-3">
+        <div
+          className={`grid w-full gap-2 md:flex md:w-auto md:flex-wrap md:gap-3 ${
+            project.stats.length === 2 ? "grid-cols-2" : "grid-cols-3"
+          }`}
+        >
           {project.stats.map((stat) => (
             <div
               key={stat.label}
               className="rounded-xl bg-black/15 px-3 py-3 md:min-w-28 md:px-4"
             >
-              <p className="text-xs text-white/70 md:text-sm">{stat.label}</p>
+              <p className="text-xs text-white/85 md:text-sm">{stat.label}</p>
               <p
                 className={`text-base font-bold md:text-xl ${project.valueColor}`}
               >

@@ -13,6 +13,7 @@ export type CaseContent = {
     solution: { label: string; title: string; body: string };
     meta: { k: string; v: string }[];
   };
+  evidence?: { title: string; rows: { h: string; body: string }[] };
   context: {
     eyebrow: string;
     title: string;

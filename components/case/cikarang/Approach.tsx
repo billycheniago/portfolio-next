@@ -14,7 +14,7 @@ export default function Approach() {
           <figure className="mt-10">
             <Pic name="office-photo" alt="Requirements meeting at the Cikarang Listrindo office" sizes="(min-width: 1280px) 1240px, 100vw" className="rounded-2xl" />
             <figcaption className="mt-3 text-center text-sm italic text-neutral-500">
-              Q1 User Requirement - Cikarang Listrindo Office
+              Requirements meeting at the Cikarang Listrindo office
             </figcaption>
           </figure>
         </div>

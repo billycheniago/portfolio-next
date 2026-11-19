@@ -17,7 +17,7 @@ import type { PointerEvent } from "react";
 import Counter from "@/components/Counter";
 
 const stats = [
-  { to: 6, plus: true, label: "Years designing" },
+  { to: 6, plus: true, label: "Years of experience" },
   { to: 4, plus: false, label: "Case studies" },
   { to: 4, plus: false, label: "Industries" },
   { to: 3, plus: false, label: "Platforms" },
@@ -189,7 +189,7 @@ export default function Hero() {
 
           <motion.div
             {...rise(0.75)}
-            className="mt-10 grid max-w-lg grid-cols-2 gap-6 border-t border-neutral-200 pt-8 sm:grid-cols-4"
+            className="mx-auto mt-10 grid max-w-lg grid-cols-2 gap-6 border-t border-neutral-200 pt-8 text-center sm:grid-cols-4 lg:mx-0 lg:text-left"
           >
             {stats.map((stat) => (
               <div key={stat.label}>

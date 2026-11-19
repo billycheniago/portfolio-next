@@ -7,6 +7,7 @@ import { caseStudies } from "@/data/case-studies";
 import FurtunaCaseStudy from "@/components/case/furtuna/FurtunaCaseStudy";
 import CikarangCaseStudy from "@/components/case/cikarang/CikarangCaseStudy";
 import CaseNav from "@/components/case/CaseNav";
+import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/case/ScrollProgress";
 import { caseLook } from "@/components/case/caseLook";
 import AdippatiCaseStudy from "@/components/case/adippati/AdippatiCaseStudy";
@@ -31,7 +32,19 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const meta = caseStudies[slug];
-  return meta ? { title: meta.title, description: meta.description } : {};
+  if (!meta) return {};
+  return {
+    title: meta.title,
+    description: meta.description,
+    alternates: { canonical: `/case/${slug}` },
+    openGraph: {
+      type: "article",
+      url: `/case/${slug}`,
+      title: `${meta.title} | Billy Cheniago`,
+      description: meta.description,
+    },
+    twitter: { card: "summary_large_image", title: `${meta.title} | Billy Cheniago`, description: meta.description },
+  };
 }
 
 export default async function CasePage({
@@ -51,7 +64,7 @@ export default async function CasePage({
       <div className="pointer-events-none sticky top-5 z-50 h-0">
         <div className="mx-auto w-full max-w-[1240px] px-5 sm:px-6">
           <Link
-            href="/#projects"
+            href="/#work"
             className="pointer-events-auto inline-flex items-center gap-3 rounded-full bg-white px-5 py-3 text-sm shadow-[0_6px_24px_rgba(0,0,0,0.12)] ring-1 ring-black/5 transition hover:shadow-[0_8px_28px_rgba(0,0,0,0.18)]"
           >
             <ChevronLeft size={16} className="text-neutral-700" />
@@ -63,6 +76,7 @@ export default async function CasePage({
       </div>
       <Page />
       <CaseNav slug={slug} />
+      <Footer />
     </main>
   );
 }

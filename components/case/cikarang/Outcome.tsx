@@ -5,8 +5,8 @@ import InteractiveCard from "../InteractiveCard";
 const RGB = "230,0,0";
 
 const delivered = [
-  { tag: "Delivered", title: "Design + MVP", text: "The core journeys, screens and integration concepts as clickable prototypes and decks aligned with Cikarang Listrindo’s roadmap, covering token purchase and history, multi-meter management, complaints, new connections, power changes and early-warning touchpoints. My team built the MVP in parallel with the design." },
-  { tag: "Where it stands", title: "MVP finished", text: "The client has not yet provided requirements for the next phase, so there is no usability testing or usage data yet." },
+  { tag: "Delivered", title: "Design + MVP", text: "The core journeys, screens and integration concepts as clickable prototypes and decks aligned with Cikarang Listrindo’s roadmap, covering token purchase and history, multi-meter management, complaints, new connections and power changes." },
+  { tag: "Where it stands", title: "MVP finished", text: "The MVP is finished; the next phase awaits the client." },
   { tag: "What it gave me", title: "Regulated-domain experience", text: "Experience designing in a complex, regulated domain and turning technical constraints into clear, usable journeys for everyday customers." },
 ];
 
@@ -31,7 +31,7 @@ export default function Outcome() {
         </InteractiveCard>
       </div>
       <p className="mt-10 text-xs font-bold uppercase tracking-[0.2em] text-neutral-500">Outcome</p>
-      <p className="mt-2 text-sm text-neutral-800 md:text-base">A complete design and a finished MVP build; the next phase is waiting on client requirements.</p>
+      <p className="mt-2 text-sm text-neutral-800 md:text-base">A complete design and a finished MVP build.</p>
       <div className="mt-6 grid gap-5 md:grid-cols-3">
         {delivered.map((c, i) => (
           <InteractiveCard key={c.title} index={i} rgb={RGB} className="rounded-2xl bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.06)]">

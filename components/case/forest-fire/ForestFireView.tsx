@@ -5,6 +5,7 @@ import HeroParallax from "../HeroParallax";
 import CountUp from "../CountUp";
 import InteractiveCard from "../InteractiveCard";
 import { LightboxProvider, ZoomImage } from "../ams/Lightbox";
+import EvidenceBox from "../ams/EvidenceBox";
 import type { CaseContent, ScreenGroup } from "../ams/types";
 
 // Mengikuti frame Figma "Forest Fire Command Center — Case study v1 (AMS structure)" (1440 px, konten 1120 px).
@@ -154,6 +155,9 @@ export default function ForestFireView({ c }: { c: CaseContent }) {
             </InteractiveCard>
           ))}
         </div>
+        {c.evidence && (
+          <EvidenceBox title={c.evidence.title} rows={c.evidence.rows} accent={C.red} line={C.line} mute={C.mute} bg={C.cream} />
+        )}
       </Section>
 
       {/* 02 */}

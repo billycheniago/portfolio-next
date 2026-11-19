@@ -7,7 +7,7 @@ const content: CaseContent = {
     eyebrow: "Product case study · 2022–2023",
     title: "Securing Land Transactions with Digital Deeds",
     subtitle: "A remote, recorded way for a land deed official and the parties to a sale to sign a deed.",
-    lead: "I was the UX & UI Designer. I designed the web and mobile UI in Figma, working from the flow and use-case diagrams drawn by the product team",
+    lead: "I was the UI/UX Designer. I designed the web and mobile UI in Figma, working from the flow and use-case diagrams drawn by the product team.",
     status: "Prototype, handed over. Not usability-tested; no outcome measured.",
   },
   overview: {
@@ -26,16 +26,23 @@ const content: CaseContent = {
       body: "Everyone verifies their identity, joins a recorded video room where the PPAT reads the deed, and signs digitally. The electronic deed then goes to the land office, and copies go to the parties.",
     },
     meta: [
-      { k: "ROLE", v: "UX & UI Designer" },
+      { k: "ROLE", v: "UI/UX Designer" },
       { k: "PLATFORM", v: "Web; Android first for mobile" },
       { k: "USERS", v: "PPAT · PPAT staff · Buyers and sellers" },
       { k: "STATUS", v: "Prototype, handed over after the design work" },
     ],
   },
+  evidence: {
+    title: "Evidence & limits",
+    rows: [
+      { h: "What the record holds", body: "The product team's flows, a pitch deck, a company profile and functional test reports." },
+      { h: "What it does not hold", body: "User research, wireframes or usability sessions. I claim none and describe the process as it happened." },
+      { h: "How to read the rationale", body: "Rationale and trade-offs are my retrospective reading, not a record of options debated at the time. The flows were drawn by the product team." },
+    ],
+  },
   context: {
     eyebrow: "Context · Who takes part, and what the record contains",
     title: "Three roles, one deed",
-    sub: "The record holds the product team's flows, a pitch deck, a company profile and functional test reports. It documents no user research or usability test, so I claim none.",
     stats: [
       { n: "3", l: "main roles" },
       { n: "8", l: "flow areas" },
@@ -66,7 +73,7 @@ const content: CaseContent = {
     eyebrow: "Approach · How the work moved",
     title: "From the product team's flows to a stakeholder review",
     intro:
-      "The record shows the flows I worked from and the screens I designed. It holds no research, wireframes or usability sessions, so I describe the process as it happened.",
+      "From the flows I worked from to the screens I designed and presented.",
     steps: [
       { tag: "FLOWS · Dec 2022 – May 2023", t: "Study the flows", d: "The flow and use-case diagrams define eight areas: account registration, login, identity verification, quota top-up, deed document registration, deed transaction, deed delivery and a PPAT e-office. Registration and the deed transaction run across three lanes: PPAT, PPAT staff and the parties." },
       { tag: "SCREENS · Web and mobile", t: "Design the core screens", d: "Web: login, registration (not shown in the gallery), dashboard, deed type menu, top-up and payment. Mobile: home, legality form, the recorded virtual signing room and, in the company profile, verification and e-signature registration." },
@@ -78,7 +85,7 @@ const content: CaseContent = {
     eyebrow: "The calls behind it · Four decisions",
     title: "Four decisions in the product",
     intro:
-      "Evidence: the product team's flows and the screens. Rationale and trade-offs are my retrospective reading, not a record of options debated at the time. The flows were drawn by the product team, and I have no usability test results.",
+      "What the product does, why, the trade-off, and what is still to validate. Each card names its evidence.",
     items: [
       {
         t: "Registration paths matched to each role",
@@ -134,18 +141,18 @@ const content: CaseContent = {
         label: "Mobile · Android first",
         layout: "phones",
         items: [
-          { asset: m.dashboard, alt: "ADIPPATI mobile: Dashboard", n: "09", title: "Dashboard", caption: "Balances and document counters in one column, with a bottom navigation bar." },
-          { asset: m.topUp, alt: "ADIPPATI mobile: Top up", n: "10", title: "Top up", caption: "Products, bundles and the order summary reflowed into a single column." },
-          { asset: m.payment, alt: "ADIPPATI mobile: Payment", n: "11", title: "Payment", caption: "Payment sheet with method choice, itemised breakdown and total." },
-          { asset: m.moreMethods, alt: "ADIPPATI mobile: More methods", n: "12", title: "More methods", caption: "Grouped as E-Wallet, QRIS and Virtual Account. The list scrolls under a pinned button." },
-          { asset: m.qris, alt: "ADIPPATI mobile: QRIS", n: "13", title: "QRIS", caption: "A phone cannot scan its own screen, so the code can be saved to the gallery and uploaded in the e-wallet or m-banking app." },
-          { asset: m.gopay, alt: "ADIPPATI mobile: GoPay redirect", n: "14", title: "GoPay redirect", caption: "A short wait while the app opens, with a manual link if it does not." },
-          { asset: m.newRequest, alt: "ADIPPATI mobile: New request", n: "15", title: "New request", caption: "Choosing the deed type: Jual Beli (AJB), APHT, Tukar Menukar and more." },
-          { asset: m.documents, alt: "ADIPPATI mobile: Documents", n: "16", title: "Documents", caption: "Step 1 of 2: pick the blank deed, then upload a PDF or take a photo." },
-          { asset: m.virtualRoom, alt: "ADIPPATI mobile: Virtual room", n: "17", title: "Virtual room", caption: "Recorded room with every participant's video. Only the notary can start affixing or end the session." },
-          { asset: m.endSession, alt: "ADIPPATI mobile: End session", n: "18", title: "End session", caption: "A confirmation before a recorded session ends and the deed returns to Draft. My proposal, not taken from the source flow." },
-          { asset: m.affixing, alt: "ADIPPATI mobile: Affixing", n: "19", title: "Affixing", caption: "Deed preview, electronic stamp and signing order, with the notary's turn highlighted." },
-          { asset: m.affixingDone, alt: "ADIPPATI mobile: Affixing done", n: "20", title: "Affixing done", caption: "Affixing finished, with one button back to the dashboard." },
+          { asset: m.dashboard, alt: "ADIPPATI mobile: Dashboard", n: "07", title: "Dashboard", caption: "Balances and document counters in one column, with a bottom navigation bar." },
+          { asset: m.topUp, alt: "ADIPPATI mobile: Top up", n: "08", title: "Top up", caption: "Products, bundles and the order summary reflowed into a single column." },
+          { asset: m.payment, alt: "ADIPPATI mobile: Payment", n: "09", title: "Payment", caption: "Payment sheet with method choice, itemised breakdown and total." },
+          { asset: m.moreMethods, alt: "ADIPPATI mobile: More methods", n: "10", title: "More methods", caption: "Grouped as E-Wallet, QRIS and Virtual Account. The list scrolls under a pinned button." },
+          { asset: m.qris, alt: "ADIPPATI mobile: QRIS", n: "11", title: "QRIS", caption: "A phone cannot scan its own screen, so the code can be saved to the gallery and uploaded in the e-wallet or m-banking app." },
+          { asset: m.gopay, alt: "ADIPPATI mobile: GoPay redirect", n: "12", title: "GoPay redirect", caption: "A short wait while the app opens, with a manual link if it does not." },
+          { asset: m.newRequest, alt: "ADIPPATI mobile: New request", n: "13", title: "New request", caption: "Choosing the deed type: Jual Beli (AJB), APHT, Tukar Menukar and more." },
+          { asset: m.documents, alt: "ADIPPATI mobile: Documents", n: "14", title: "Documents", caption: "Step 1 of 2: pick the blank deed, then upload a PDF or take a photo." },
+          { asset: m.virtualRoom, alt: "ADIPPATI mobile: Virtual room", n: "15", title: "Virtual room", caption: "Recorded room with every participant's video. Only the notary can start affixing or end the session." },
+          { asset: m.endSession, alt: "ADIPPATI mobile: End session", n: "16", title: "End session", caption: "A confirmation before a recorded session ends and the deed returns to Draft. My proposal, not taken from the source flow." },
+          { asset: m.affixing, alt: "ADIPPATI mobile: Affixing", n: "17", title: "Affixing", caption: "Deed preview, electronic stamp and signing order, with the notary's turn highlighted." },
+          { asset: m.affixingDone, alt: "ADIPPATI mobile: Affixing done", n: "18", title: "Affixing done", caption: "Affixing finished, with one button back to the dashboard." },
         ],
       },
     ],

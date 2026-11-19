@@ -8,12 +8,12 @@ const cards = [
   {
     icon: ClipboardList,
     title: "Who I designed for",
-    text: "Residents of Cikarang Listrindo's new housing customers, who buy prepaid tokens, need to see their token history and usage, and want one place to manage services instead of bank channels, agents, counters and phone calls.",
+    text: "Residents of Cikarang Listrindo's new housing, who are its prepaid customers. They buy tokens, need to see their token history and usage, and want one place to manage services instead of bank channels, agents, counters and phone calls.",
   },
   {
     icon: FlaskConical,
     title: "How I worked without formal research",
-    text: "I visited the client office with my team, then reviewed requirement documents and integration diagrams to understand how meters, the vending system, the payment gateway and SAP/CRM connect before making any design decision.",
+    text: "No formal user research was done. I understood residents through the client office visit and the requirement documents, described in the Approach below.",
   },
 ];
 

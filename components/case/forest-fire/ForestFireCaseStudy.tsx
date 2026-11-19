@@ -14,7 +14,7 @@ const content: CaseContent = {
     eyebrow: "Overview · The problem and the answer",
     title: "Turning scattered fire data into one screen for the control room",
     intro:
-      "Fire data in South Sumatra sat in separate feeds: weather figures, map services, files, cameras and drones. The documents don’t describe how officers worked before, so I claim no baseline.",
+      "Fire data in South Sumatra sat in separate feeds: weather figures, map services, files, cameras and drones.",
     challenge: {
       label: "THE CHALLENGE",
       title: "Fire data in a dozen separate places",
@@ -32,10 +32,17 @@ const content: CaseContent = {
       { k: "INTERFACE", v: "Indonesian · English" },
     ],
   },
+  evidence: {
+    title: "Evidence & limits",
+    rows: [
+      { h: "What the record holds", body: "What was built each week and how the screens changed." },
+      { h: "What it does not hold", body: "Research notes, wireframes, usability sessions, or how officers worked before. I show scope and decisions, not findings, claim no baseline and left the research stage out rather than invent one." },
+      { h: "How to read the rationale", body: "Rationale and trade-offs are my retrospective reading, not a record of options debated at the time. No usability testing was done." },
+    ],
+  },
   context: {
     eyebrow: "Context · What the record shows",
     title: "What the record contains, and what it doesn’t",
-    sub: "No research notes, wireframes or usability sessions survive, so this case study shows scope and decisions, not findings. I’ve left the research stage out rather than invent one.",
     stats: [
       { n: "6 + 1", l: "sections, plus Data Management" },
       { n: "4", l: "user roles, Viewer to Maintener" },
@@ -67,7 +74,7 @@ const content: CaseContent = {
     eyebrow: "Approach · How the work moved",
     title: "From contract scope to a documented build",
     intro:
-      "The record shows what was built each week and how screens changed. It holds no research, wireframes or usability sessions, so I describe the process as it happened.",
+      "What was built each week, and how the screens changed.",
     steps: [
       { tag: "SCOPE", t: "Start from the contract scope", d: "Dashboard, fire spread prediction, generative report, hardware and services." },
       { tag: "WEEKS 1–6", t: "One section a week, on sample data", d: "Sign-in and Monitoring, then Alert, Analytics, Notes, Fire Spread and Report." },
@@ -88,7 +95,7 @@ const content: CaseContent = {
     eyebrow: "The calls behind it · Four decisions",
     title: "Four decisions visible in the built product",
     intro:
-      "Rationale and trade-offs are my retrospective reading, not a record of options debated at the time. No usability testing was done.",
+      "What the screens show, why, the trade-off, and what is still to validate.",
     items: [
       {
         t: "A wall each person arranges, saved automatically",

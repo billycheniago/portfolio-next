@@ -31,7 +31,7 @@ export default function Contact() {
           {"Let's get to know each other!"}
         </h2>
 
-        <p className="mt-5 max-w-2xl text-base sm:text-lg lg:text-lg leading-relaxed text-neutral-500">
+        <p className="mt-5 max-w-2xl text-base sm:text-lg lg:text-lg leading-relaxed text-neutral-700">
           {
             "I'm open to new roles, freelance projects, and collaborations. If you're working on something meaningful, tell me about it. I'd genuinely love to hear it."
           }

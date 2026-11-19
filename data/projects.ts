@@ -37,15 +37,15 @@ export const projects: Project[] = [
     slug: "furtuna",
     title: "Under 2-Minute Ticketing for Tourist Attractions",
     stats: [
-      { label: "Checkout Time", value: "< 2 min" },
+      { label: "Checkout", value: "< 2 min" },
       { label: "System", value: "4-in-1" },
       { label: "Demoed", value: "SMESCO" },
     ],
-    role: "Product Designer & PM",
+    role: "Product Designer & Product Manager",
     status: { label: "MVP demoed · Jun 2024", dot: "bg-emerald-300" },
     image: "/projects/furtuna.png",
     href: "/case/furtuna",
-    gradient: "bg-linear-to-b from-[#E8944A] to-[#C25A0A]",
+    gradient: "bg-linear-to-b from-[#B85A0B] to-[#8F4208]",
     valueColor: "text-amber-100",
   },
 
@@ -79,7 +79,7 @@ export const projects: Project[] = [
     status: { label: "MVP built", dot: "bg-emerald-300" },
     image: "/projects/cikarang.png",
     href: "/case/cikarang",
-    gradient: "bg-linear-to-b from-[#E8606A] to-[#A81010]",
+    gradient: "bg-linear-to-b from-[#C0303A] to-[#A81010]",
     valueColor: "text-yellow-200",
   },
 ];
