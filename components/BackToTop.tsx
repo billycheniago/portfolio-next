@@ -28,7 +28,7 @@ export default function BackToTop({ hidden = false }: { hidden?: boolean }) {
           animate={reduce ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 }}
           exit={reduce ? { opacity: 0 } : { opacity: 0, y: 12, scale: 0.9 }}
           transition={{ duration: 0.25 }}
-          className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-neutral-900 shadow-lg ring-1 ring-black/10 transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-white text-neutral-900 shadow-lg ring-1 ring-black/10 transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
           <ArrowUp size={20} aria-hidden />
         </motion.button>

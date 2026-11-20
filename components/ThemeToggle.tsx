@@ -76,7 +76,7 @@ export default function ThemeToggle({ className = "" }: { className?: string }) 
       onClick={toggle}
       aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
       suppressHydrationWarning
-      className={`flex h-11 w-11 items-center justify-center rounded-full bg-[#F0EFEC] text-neutral-900 ring-1 ring-black/10 transition-transform dark:bg-[#3b3b44] dark:text-[#fff] dark:ring-white/45 hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent active:scale-95 ${className}`}
+      className={`flex h-11 w-11 cursor-pointer items-center justify-center rounded-full bg-[#F0EFEC] text-neutral-900 ring-1 ring-black/10 transition-transform dark:bg-[#3b3b44] dark:text-[#fff] dark:ring-white/45 hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent active:scale-95 ${className}`}
     >
       {dark ? <Sun size={20} /> : <Moon size={20} />}
     </button>

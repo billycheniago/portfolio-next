@@ -180,7 +180,7 @@ export default function NekoLauncher({
           whileHover={reduce ? undefined : { scale: 1.05 }}
           whileTap={{ scale: 0.96 }}
           style={{ transformOrigin: "50% 100%" }}
-          className="block h-[72px] w-[112px] rounded-2xl drop-shadow-[0_6px_8px_rgba(0,0,0,0.22)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          className="block h-[72px] w-[112px] cursor-pointer rounded-2xl drop-shadow-[0_6px_8px_rgba(0,0,0,0.22)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
           <NekoFace look={look} blink={blink} ear={ear} happy={open} asleep={asleep} animate={!reduce} className="h-full w-full" />
         </motion.button>
