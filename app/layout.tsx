@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Source_Sans_3, Caveat } from "next/font/google";
 import "./globals.css";
-import ThemeToggle from "@/components/ThemeToggle";
-import BackToTop from "@/components/BackToTop";
+import FloatingDock from "@/components/FloatingDock";
 
 const sourceSans = Source_Sans_3({
   subsets: ["latin"],
@@ -66,8 +65,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
         {children}
-        <BackToTop />
-        <ThemeToggle />
+        <FloatingDock />
       </body>
     </html>
   );

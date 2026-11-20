@@ -16,9 +16,9 @@ function subscribe(onChange: () => void) {
 const getSnapshot = () => document.documentElement.classList.contains("dark");
 const getServerSnapshot = () => false;
 
-// Tombol bulat kanan bawah untuk ganti mode terang / gelap.
+// Tombol bulat untuk ganti mode terang / gelap (dipasang di header).
 // Perubahan tema dianimasikan sebagai lingkaran yang membesar dari tombol.
-export default function ThemeToggle() {
+export default function ThemeToggle({ className = "" }: { className?: string }) {
   const dark = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   function apply(next: boolean) {
@@ -76,7 +76,7 @@ export default function ThemeToggle() {
       onClick={toggle}
       aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
       suppressHydrationWarning
-      className="fixed bottom-5 right-5 z-[60] flex h-12 w-12 items-center justify-center rounded-full border border-neutral-300 bg-white text-neutral-900 shadow-[0_6px_24px_rgba(0,0,0,0.18)] transition-transform hover:scale-105 active:scale-95 dark:border-white/25 dark:bg-[#2a2a30] dark:text-[#fff] dark:shadow-[0_6px_24px_rgba(0,0,0,0.6)] md:bottom-8 md:right-8"
+      className={`flex h-11 w-11 items-center justify-center rounded-full bg-[#F1F0ED] text-neutral-900 ring-1 ring-black/10 transition-transform dark:bg-[#2a2a30] dark:text-[#fff] dark:ring-white/30 hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent active:scale-95 ${className}`}
     >
       {dark ? <Sun size={20} /> : <Moon size={20} />}
     </button>

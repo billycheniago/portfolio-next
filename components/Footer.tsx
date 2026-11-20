@@ -14,7 +14,7 @@ const linkClass =
 
 export default function Footer() {
   return (
-    <footer className="border-t border-neutral-200 bg-white px-5 pb-40 pt-10 sm:px-8 md:pb-12">
+    <footer className="border-t border-neutral-200 bg-white px-5 pb-40 pt-10 sm:px-8 md:pb-40">
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-left">
         <div>
           <p className="text-base font-bold text-neutral-900">Billy Cheniago</p>

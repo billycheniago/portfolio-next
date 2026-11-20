@@ -76,7 +76,9 @@ export default async function CasePage({
       </div>
       <Page />
       <CaseNav slug={slug} />
-      <Footer />
+      <div className="keep-light">
+        <Footer />
+      </div>
     </main>
   );
 }

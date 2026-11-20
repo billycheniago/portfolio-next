@@ -9,6 +9,7 @@ import {
   useScroll,
 } from "motion/react";
 import { ArrowUpRight, Briefcase, Mail, Menu, User, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const links = [
   { label: "About", href: "#home", icon: User },
@@ -149,8 +150,9 @@ export default function Navbar() {
           })}
         </ul>
 
-        {/* Kanan: Resume + hamburger (hamburger hanya mobile) */}
+        {/* Kanan: tema + Resume + hamburger (hamburger hanya mobile) */}
         <div className="flex items-center gap-2 md:justify-self-end">
+          <ThemeToggle />
           <a
             href="/Billy_Cheniago_CV.pdf"
             target="_blank"
