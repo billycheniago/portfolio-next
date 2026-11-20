@@ -46,31 +46,29 @@ export default function NekoLauncher({
     };
   }, [reduce]);
 
-  // Tertidur bila tidak ada interaksi sekitar 5 detik; bangun saat ada gerakan, klik, scroll, atau ketikan
+  // Neko tidur bila tidak diajak interaksi (hover, klik, sentuh, fokus) selama 5 detik.
+  // Gerakan mouse di bagian halaman lain tidak membangunkannya.
+  const sleepTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const hovering = useRef(false);
+  const armSleep = () => {
+    clearTimeout(sleepTimer.current);
+    sleepTimer.current = setTimeout(() => {
+      setAsleep(true);
+      setLook({ x: 0, y: 0 });
+    }, 5000);
+  };
+  const wake = () => {
+    setAsleep(false);
+    clearTimeout(sleepTimer.current);
+  };
   useEffect(() => {
     if (open) {
-      setAsleep(false);
+      wake();
       return;
     }
-    let timer: ReturnType<typeof setTimeout>;
-    const arm = () => {
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        setAsleep(true);
-        setLook({ x: 0, y: 0 });
-      }, 5000);
-    };
-    const wake = () => {
-      setAsleep(false);
-      arm();
-    };
-    arm();
-    const evs = ["pointermove", "pointerdown", "keydown", "scroll", "touchstart"] as const;
-    evs.forEach((e) => window.addEventListener(e, wake, { passive: true }));
-    return () => {
-      clearTimeout(timer);
-      evs.forEach((e) => window.removeEventListener(e, wake));
-    };
+    if (!hovering.current) armSleep();
+    return () => clearTimeout(sleepTimer.current);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
   // Kedip acak dan kuping bergerak (tidak saat tidur)
@@ -158,9 +156,23 @@ export default function NekoLauncher({
           aria-expanded={open}
           aria-haspopup="dialog"
           onPointerEnter={(e) => {
+            hovering.current = true;
+            wake();
             if (e.pointerType === "mouse") setBubble("hover");
           }}
-          onPointerLeave={() => setBubble(null)}
+          onPointerLeave={() => {
+            hovering.current = false;
+            setBubble(null);
+            if (!open) armSleep();
+          }}
+          onPointerDown={() => {
+            wake();
+            if (!hovering.current && !open) armSleep();
+          }}
+          onFocus={wake}
+          onBlur={() => {
+            if (!open && !hovering.current) armSleep();
+          }}
           onClick={() => {
             setBubble(null);
             onOpenChange(!open);

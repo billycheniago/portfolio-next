@@ -169,7 +169,7 @@ export default function Navbar() {
             onClick={() => setMenuOpen((open) => !open)}
             aria-label={menuOpen ? "Tutup menu" : "Buka menu"}
             aria-expanded={menuOpen}
-            className="flex h-11 w-11 items-center justify-center rounded-full bg-[#F1F0ED] text-neutral-900 md:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-[#F0EFEC] text-neutral-900 ring-1 ring-black/10 dark:bg-[#3b3b44] dark:text-[#fff] dark:ring-white/45 md:hidden"
           >
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -196,7 +196,7 @@ export default function Navbar() {
                   }}
                   className={`flex items-center gap-3 rounded-2xl px-4 py-3 text-lg font-medium ${
                     active === label
-                      ? "bg-[#F1F0ED] text-neutral-900"
+                      ? "bg-[#F0EFEC] text-neutral-900 dark:bg-[#3b3b44] dark:text-[#fff]"
                       : "text-neutral-600"
                   }`}
                 >
